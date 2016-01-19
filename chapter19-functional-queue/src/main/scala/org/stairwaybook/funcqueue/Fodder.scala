@@ -29,3 +29,28 @@ class Dog extends Animal {
   override def eat(food: DogFood) {}
 
 }
+
+// Structural subtyping
+
+class Pasture {
+
+  var animals: List[Animal {type SuitableFood = Grass}] = Nil
+
+}
+
+class LoanPattern {
+
+  def using[T <: {def close() : Unit}, S](obj: T)(operation: T => S) = {
+    val result = operation(obj)
+    obj.close()
+    result
+  }
+}
+
+// Enumerations
+
+object Colour extends Enumeration {
+  val Red = Value
+  val Green = Value
+  val Blue = Value
+}
