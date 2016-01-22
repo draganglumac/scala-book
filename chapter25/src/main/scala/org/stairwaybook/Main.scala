@@ -1,6 +1,7 @@
 package org.stairwaybook
 
 import org.stairwaybook.collections._
+import org.stairwaybook.patricia._
 
 object Main {
 
@@ -22,7 +23,14 @@ object Main {
     println("map2 ++ map2 = " + (map2 ++ map2))
   }
 
+  def patriciaMain(): Unit = {
+    val m: PrefixMap[Int] = PrefixMap("abc" -> 0, "abd" -> 1, "al" -> 2, "all" -> 3, "xy" -> 4)
+    println("m get \"a\" = " + (m get "a"))
+    println("m withPrefix \"a\" = " + (m withPrefix "a"))
+  }
+
   def main(args: Array[String]): Unit = {
     rnaMain()
+    patriciaMain()
   }
 }
